@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import com.example.myapplication.usecase.GetStoryUseCaseImpl
+import com.example.myapplication.usecase.StoryRepository
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.TestScheduler
 import junit.framework.Assert.assertEquals
@@ -12,7 +14,7 @@ import org.mockito.Spy
 import java.util.*
 
 
-class GetStoryImplTest {
+class GetStoryUseCaseImplTest {
 
     @Mock
     lateinit var storyRepo: StoryRepository
@@ -35,7 +37,7 @@ class GetStoryImplTest {
         Mockito.`when`(storyRepo.getStory()).thenReturn(Observable.just("story B"))
 
         val scheduler = TestScheduler()
-        val getStory = GetStoryImpl(schedulerProvider = TestScheduleProvider(scheduler), storyRepository = storyRepo)
+        val getStory = GetStoryUseCaseImpl(storyRepository = storyRepo)
 
         val storyTest = getStory.getStory().test()
 

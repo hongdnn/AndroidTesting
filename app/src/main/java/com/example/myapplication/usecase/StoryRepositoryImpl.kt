@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.usecase
 
 import io.reactivex.rxjava3.core.Observable
 

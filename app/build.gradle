@@ -55,11 +55,14 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.1"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     testImplementation 'org.mockito:mockito-core:4.6.1'
+    androidTestImplementation 'org.mockito:mockito-core:4.6.1'
+    androidTestImplementation 'org.mockito:mockito-android:4.6.1'
     //UI test
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test:rules:1.1.1'
     androidTestImplementation 'androidx.test.ext:truth:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     //Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"

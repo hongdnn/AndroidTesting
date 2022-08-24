@@ -1,10 +1,9 @@
 package com.example.myapplication
 
-import com.example.myapplication.usecase.GetStoryUseCaseImpl
+import com.example.myapplication.usecase.GetStoryUseCase
 import com.example.myapplication.usecase.StoryRepository
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.TestScheduler
-import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -14,7 +13,7 @@ import org.mockito.Spy
 import java.util.*
 
 
-class GetStoryUseCaseImplTest {
+class GetStoryUseCaseTest {
 
     @Mock
     lateinit var storyRepo: StoryRepository
@@ -37,18 +36,18 @@ class GetStoryUseCaseImplTest {
         Mockito.`when`(storyRepo.getStory()).thenReturn(Observable.just("story B"))
 
         val scheduler = TestScheduler()
-        val getStory = GetStoryUseCaseImpl(storyRepository = storyRepo)
+        val getStory = GetStoryUseCase(storyRepository = storyRepo)
 
-        val storyTest = getStory.getStory().test()
+        val storyTest = getStory.execute().test()
 
-        Mockito.`when`(list[0]).thenReturn("C")
-        spyList.add("C")
+//        Mockito.`when`(list[0]).thenReturn("C")
+//        spyList.add("C")
+//
+//        assert(spyList[0] == "C")
+//        assertEquals(list[0], "C")
 
-        assert(spyList[0] == "C")
-        assertEquals(list[0], "C")
 
-
-        scheduler.triggerActions()
+       // scheduler.triggerActions()
         storyTest.assertComplete()
         storyTest.assertNoErrors()
         assert(storyTest.values()[0] == "story B")

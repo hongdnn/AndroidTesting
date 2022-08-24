@@ -1,10 +1,11 @@
 package com.example.myapplication.usecase
 
 import io.reactivex.rxjava3.core.Observable
+import javax.inject.Inject
 
-class StoryRepositoryImpl : StoryRepository {
+class StoryRepositoryImpl @Inject constructor() : StoryRepository {
     override fun getStory(): Observable<String> {
-        return Observable.just("story A")
+        return Observable.just("Story A")
     }
 
     override fun getX(): String {

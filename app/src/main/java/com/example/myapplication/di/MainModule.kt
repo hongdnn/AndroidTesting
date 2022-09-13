@@ -16,11 +16,6 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 abstract class MainModule {
 
-//    @Binds
-//    abstract fun bindGetStoryUseCase(
-//        getStoryUseCaseImpl: GetStoryUseCaseImpl
-//    ): GetStoryUseCase
-
     @Binds
     abstract fun bindSchedulerProvider(
         schedulerProviderImpl: SchedulerProviderImpl

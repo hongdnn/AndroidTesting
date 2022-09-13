@@ -34,6 +34,8 @@ def isDeployCandidate() {
 pipeline {
     agent { dockerfile true }
     environment {
+        PATH = 'C:\\Windows\\system32'
+
         appName = 'jenkins-blog'
 
         KEY_PASSWORD = credentials('keyPassword')

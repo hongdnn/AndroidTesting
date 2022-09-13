@@ -27,4 +27,4 @@ RUN $ANDROID_HOME/tools/bin/sdkmanager "build-tools;33.0.0" \
     "platforms;android-${ANDROID_VERSION}" \
     "platform-tools"
 
-CM ["/bin/bash"]
+CMD ["/bin/bash"]

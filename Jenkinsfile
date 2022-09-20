@@ -32,10 +32,9 @@ def isDeployCandidate() {
 }
 
 pipeline {
+    echo 'Start from here........'
     agent { dockerfile true }
     environment {
-        PATH = 'C:\\Windows\\system32'
-
         appName = 'jenkins-blog'
 
         KEY_PASSWORD = credentials('keyPassword')

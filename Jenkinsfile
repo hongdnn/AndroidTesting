@@ -32,7 +32,6 @@ def isDeployCandidate() {
 }
 
 pipeline {
-    echo 'Start from here........'
     agent { dockerfile true }
     environment {
         appName = 'jenkins-blog'

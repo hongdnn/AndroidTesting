@@ -8,11 +8,14 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.myapplication.R
 import com.example.myapplication.TestScheduleProvider
+import com.example.myapplication.usecase.GetListDataUseCase
 import com.example.myapplication.usecase.GetStoryUseCase
 import com.example.myapplication.usecase.StoryRepository
 import com.example.myapplication.viewmodel.MainViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.TestScheduler
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import org.hamcrest.core.AllOf.allOf
 import org.junit.After
 import org.junit.Before

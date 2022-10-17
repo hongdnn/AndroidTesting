@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.usecase
 
 import com.example.myapplication.usecase.GetStoryUseCase
 import com.example.myapplication.usecase.StoryRepository
@@ -34,8 +34,6 @@ class GetStoryUseCaseTest {
     fun getStoryTest() {
 
         Mockito.`when`(storyRepo.getStory()).thenReturn(Observable.just("story B"))
-
-        val scheduler = TestScheduler()
         val getStory = GetStoryUseCase(storyRepository = storyRepo)
 
         val storyTest = getStory.execute().test()
@@ -46,8 +44,6 @@ class GetStoryUseCaseTest {
 //        assert(spyList[0] == "C")
 //        assertEquals(list[0], "C")
 
-
-       // scheduler.triggerActions()
         storyTest.assertComplete()
         storyTest.assertNoErrors()
         assert(storyTest.values()[0] == "story B")

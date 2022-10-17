@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.viewmodel.CoroutinesViewModel
 import com.example.myapplication.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val mainViewModel by viewModels<MainViewModel>()
+    private val coroutinesViewModel by viewModels<CoroutinesViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mainViewModel.storyLiveData.observe(this) { data ->
             binding.tvTest.text = data
+        }
+
+        coroutinesViewModel.listDataLiveData.observe(this) { data ->
+            binding.tvTest.text = data[data.size - 1]
         }
     }
 

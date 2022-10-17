@@ -1,6 +1,5 @@
 package com.example.myapplication.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.SchedulerProvider
@@ -14,9 +13,6 @@ class MainViewModel @Inject constructor(
     private val getStoryUseCase: GetStoryUseCase,
     private val schedulerProvider: SchedulerProvider
 ) : ViewModel() {
-
-//    @Inject lateinit var getStoryUseCase: GetStoryUseCase
-//    @Inject lateinit var schedulerProvider: SchedulerProvider
 
 
     val storyLiveData by lazy { MutableLiveData<String>() }

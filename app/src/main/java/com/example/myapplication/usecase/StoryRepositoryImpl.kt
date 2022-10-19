@@ -8,8 +8,9 @@ class StoryRepositoryImpl @Inject constructor() : StoryRepository {
         return Observable.just("Story A")
     }
 
-    override fun getX(): String {
-        return "A"
+    override suspend fun getListData(): List<String> {
+        return mutableListOf("DataA", "DataB", "DataC")
     }
+
 
 }
